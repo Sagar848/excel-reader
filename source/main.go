@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/Sagar848/excel-reader/excel"
+	excel "github.com/Sagar848/excel-reader/excel"
 )
 
 func main() {
