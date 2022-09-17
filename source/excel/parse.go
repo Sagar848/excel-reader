@@ -40,7 +40,7 @@ func Parse(filename string, hasHeader bool) ([]string, [][]string) {
 			if hasHeader {
 				header = row
 			} else {
-				for cellNum, _ := range row {
+				for cellNum := range row {
 					header = append(header, fmt.Sprint("column", cellNum))
 				}
 				data = append(data, row)
