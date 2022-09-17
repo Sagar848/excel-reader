@@ -2,12 +2,15 @@ package main
 
 import (
 	"fmt"
-	"text/template/parse"
+
+	excelparse "github.com/Sagar848/excel-reader/excel"
 )
 
 func main() {
 	fmt.Println("here we will read excel files")
 
-	parse.Parse("D:/files/DummyFile.xlsx")
+	header, rows := excelparse.Parse("D:/files/DummyFile.xlsx", false)
+	fmt.Println("header =", header)
+	fmt.Println("rows =", rows)
 
 }
