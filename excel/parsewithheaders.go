@@ -9,7 +9,7 @@ import (
 
 // Send the file you want to parse
 // File has to be provided with full path
-func Parse(filename string, hasHeader bool) []map[string]interface{} {
+func ParseWithSpeceficHeaders(filename string, hasHeader bool, speceficHeaders []string) []map[string]interface{} {
 
 	var header = make([]string, 0, 10)
 	// var data = make([][]string, 0, 10)
@@ -25,6 +25,12 @@ func Parse(filename string, hasHeader bool) []map[string]interface{} {
 			fmt.Println(err)
 		}
 	}()
+
+	speceficColumnNumbers, err := GetColumnNumbers(speceficHeaders)
+	if err != nil {
+		log.Println("Error in getting specefic errors: ", err)
+		return nil
+	}
 
 	activeSheetNumber := f.GetActiveSheetIndex()
 	activeSheet := f.GetSheetName(activeSheetNumber)
@@ -46,10 +52,10 @@ func Parse(filename string, hasHeader bool) []map[string]interface{} {
 					header = append(header, fmt.Sprint("column", cellNum))
 				}
 
-				dataMap = append(dataMap, createDataMap(header, row))
+				dataMap = append(dataMap, createDataMapWithSpeceficheaders(header, row, speceficColumnNumbers))
 			}
 		} else {
-			dataMap = append(dataMap, createDataMap(header, row))
+			dataMap = append(dataMap, createDataMapWithSpeceficheaders(header, row, speceficColumnNumbers))
 		}
 
 	}
