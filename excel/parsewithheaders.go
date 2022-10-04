@@ -10,7 +10,7 @@ func ParseWithSpeceficHeaders(filename string, hasHeader bool, speceficHeaders [
 
 	speceficColumnNumbers, err := GetColumnNumbers(speceficHeaders)
 	if err != nil {
-		log.Println("Error in getting specefic errors: ", err)
+		log.Println("Error in getting specefic columns: ", err)
 		return nil
 	}
 
