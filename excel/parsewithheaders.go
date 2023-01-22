@@ -6,7 +6,7 @@ import (
 
 // Send the file you want to parse
 // File has to be provided with full path
-func ParseWithSpeceficHeaders(filename string, hasHeader bool, speceficHeaders []string) []map[string]interface{} {
+func ParseWithSpeceficHeaders(filename string, hasHeader bool, speceficHeaders []string) map[string][]map[string]interface{} {
 
 	speceficColumnNumbers, err := GetColumnNumbers(speceficHeaders)
 	if err != nil {
