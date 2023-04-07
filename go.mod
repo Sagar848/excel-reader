@@ -1,4 +1,4 @@
-module github.com/Sagar848/excel-reader/v2
+module github.com/Sagar848/excel-reader
 
 go 1.17
 
